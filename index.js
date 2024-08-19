@@ -44,9 +44,10 @@ function fetchDuckDuckGo(query, res) {
 		})
 		.catch((error) => {
 			console.log(error);
-			return res
-				.status(500)
-				.json({ error: "Something went wrong! please try again" });
+			return res.status(500).json({
+				suggestions: [],
+				error: "Something went wrong! please try again",
+			});
 		});
 }
 
@@ -75,9 +76,10 @@ function fetchBrave(query, res, apikey) {
 		})
 		.catch((error) => {
 			console.log(error);
-			return res
-				.status(500)
-				.json({ error: "Something went wrong! please try again" });
+			return res.status(500).json({
+				suggestions: [],
+				error: "Something went wrong! please try again",
+			});
 		});
 }
 
