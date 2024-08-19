@@ -19,10 +19,6 @@ app.get("/suggest", (req, res) => {
 	if (!query || !provider)
 		return res.status(400).json({ error: "Missing query or provider" });
 
-	if (provider !== "duckduckgo")
-		if (provider !== "brave")
-			return res.status(400).json({ error: "Invalid provider" });
-
 	if (provider === "brave" && !apikey)
 		return res.status(401).json({
 			error: `Brave API key is required! If you dont want to use api key please use "duckduckgo" as provider`,
@@ -33,9 +29,10 @@ app.get("/suggest", (req, res) => {
 			fetchDuckDuckGo(query, res);
 			break;
 		case "brave":
-			return res
-				.status(400)
-				.json({ error: "Not implemented yet! Use 'duckduckgo'" });
+			fetchBrave(query, res, apikey);
+			break;
+		default:
+			return res.status(400).json({ error: "Invalid provider" });
 	}
 });
 
@@ -53,8 +50,35 @@ function fetchDuckDuckGo(query, res) {
 		});
 }
 
-function fetchBrave(query, apikey) {
-	return "todo";
+function fetchBrave(query, res, apikey) {
+	fetch(
+		`https://api.search.brave.com/res/v1/suggest/search?q=${query}&country=all&count=8`,
+		{
+			headers: {
+				Accept: "application/json",
+				"Accept-Encoding": "gzip",
+				"X-Subscription-Token": apikey,
+			},
+		},
+	)
+		.then((response) => response.json())
+		.then(async (data) => {
+			const tempdata = [];
+			if (Array.isArray(data) && data.length === 0)
+				return res.status(200).json({ suggestions: [] });
+			data.results.forEach((element) => {
+				tempdata.push({
+					phrase: element.query,
+				});
+			});
+			return res.status(200).json({ suggestions: tempdata });
+		})
+		.catch((error) => {
+			console.log(error);
+			return res
+				.status(500)
+				.json({ error: "Something went wrong! please try again" });
+		});
 }
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`Server started on ${port}!`));
