@@ -133,3 +133,4 @@ dist
 *.mp4
 *.png
 yarn.lock
+.vercel
