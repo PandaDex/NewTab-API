@@ -132,3 +132,4 @@ dist
 *.pem
 *.mp4
 *.png
+yarn.lock
