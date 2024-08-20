@@ -13,6 +13,7 @@ app.use(limiter);
 app.disable("x-powered-by");
 app.use(cors("*"));
 app.use(express.static(__dirname + "/public"));
+app.set("trust proxy", 1);
 
 app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/public/index.html");
