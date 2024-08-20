@@ -32,12 +32,19 @@ body {
     border-radius: 6px;
     padding-left: 10px;
     padding-bottom: 20px;
+    background-color: rgb(245 245 245);
 }
 
 .detail-route code {
     background-color: rgb(212 212 216);
     padding: 3px 6px 3px 6px;
     border-radius: 5px;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .detail-sm {
@@ -50,6 +57,10 @@ h4 {
     margin: 0;
     margin-top: 2px;
     margin-bottom: 2px;
+}
+
+code {
+    width: fit-content;
 }
 
 /* .query {
