@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Routes</title>
+</head>
+
+<body>
+    <div class="main-view">
+        <div class="detail-view">
+            <div class="detail-route">
+                <h2>GET /suggest</h2>
+                <div>
+                    <p>Example usage</p>
+                    <code>
+                        GET https://new-tab-api.vercel.app/suggest?query=Hello&provider=duckduckgo
+                    </code>
+                    <p>Example Response</p>
+                    <code>
+                        {
+                            "suggestions": [
+                                {"phrase": "hello world"},
+                                {"phrase": "hello in spanish"}...
+                            ]
+                        }
+                    </code>
+                    <p>Query parameters</p>
+                    <div class="query-container">
+                        <div class="query">
+                            <h4>query</h4>
+                            <p class="detail-sm"><b>Type:</b> string</p>
+                            <p class="detail-sm"><b>Required:</b> always</p>
+                            <p class="detail-sm"><b>Description:</b> The query to search suggestions for.</p>
+                        </div>
+                        <div class="query">
+                            <h4>provider</h4>
+                            <p class="detail-sm"><b>Type:</b> string</p>
+                            <p class="detail-sm"><b>Required:</b> always</p>
+                            <p class="detail-sm"><b>Description:</b> The provider to use.</p>
+                            <p class="detail-sm"><b>Options:</b> duckduckgo, brave</p>
+                        </div>
+                        <div class="query">
+                            <h4>apikey</h4>
+                            <p class="detail-sm"><b>Type:</b> string</p>
+                            <p class="detail-sm"><b>Required:</b> when using brave as provider</p>
+                            <p class="detail-sm"><b>Description:</b> Brave search suggestions API key.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

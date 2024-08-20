@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;800;900&display=swap);
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(228 228 231);
+}
+
+.main-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.detail-view {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-route {
+    border: 2px solid rgb(212 212 216);
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.detail-route code {
+    background-color: rgb(212 212 216);
+    padding: 3px 6px 3px 6px;
+    border-radius: 5px;
+}
+
+.detail-sm {
+    font-size: 14px;
+    padding: 0;
+    margin: 3px;
+}
+
+h4 {
+    margin: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+/* .query {
+    border-bottom: 2px solid rgb(161 161 170);
+    width: fit-content;
+} */
+
+.query-container {
+    padding-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
